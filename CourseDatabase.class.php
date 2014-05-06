@@ -38,7 +38,7 @@ Damit können Noten erfasst werden, man kann statistische Daten zusammen tragen o
         $databases = CourseDB::findMine($course_id);
         if (count($databases) || $GLOBALS['perm']->have_studip_perm("tutor", $course_id)) {
             $tab = new Navigation(_("Data"), PluginEngine::getURL($this, array(), "manager/overview"));
-            $tab->setImage($this->getPluginURL()."/assets/database_grey.png");
+            $tab->setImage($this->getPluginURL()."/assets/database_grey.png", array('title' => _("Datenbanken")));
             return $tab;
         } else {
             return null;
