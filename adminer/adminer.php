@@ -11,6 +11,7 @@ function adminer_object() {
     $plugins = array(
         // specify enabled plugins hereAdminerStudipLogin
         new AdminerFrames,
+        new AdminerDumpZip,
         new AdminerStudipLogin,
     );
 
