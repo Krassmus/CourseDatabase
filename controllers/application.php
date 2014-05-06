@@ -33,12 +33,6 @@ class ApplicationController extends Trails_Controller{
         $this->set_layout($GLOBALS['template_factory']->open('layouts/base'));
 
         $this->assets_url = $this->plugin->getPluginUrl(). '/assets/';
-        PageLayout::addHeadElement("link",
-            array(
-                "href" => $this->assets_url.'stylesheets/blubberforum.css',
-                "rel" => "stylesheet"
-            ),
-        "");
     }
 
     /**

@@ -4,7 +4,7 @@ class CourseDB extends SimpleORMap {
 
     static public function findMine($course_id) {
         if ($GLOBALS['perm']->have_studip_perm("tutor", $course_id)) {
-            return self::findBySQL("seminar_id = ? ORDER BY name ASC");
+            return self::findBySQL("seminar_id = ? ORDER BY name ASC", array($course_id));
         } else {
             $statement = DBManager::get()->prepare("
                 SELECT coursedatabases.*
