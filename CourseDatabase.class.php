@@ -21,7 +21,7 @@ Damit können Noten erfasst werden, man kann statistische Daten zusammen tragen o
 
     function getTabNavigation($course_id) {
         $databases = CourseDB::findMine($_SESSION['SessionSeminar']);
-        if (count($databases)) {
+        if (count($databases) || $GLOBALS['perm']->have_studip_perm("tutor", $course_id)) {
             $tab = new Navigation(_("Data"), PluginEngine::getURL($this, array(), "manager/overview"));
             $tab->setImage($this->getPluginURL()."/assets/database_white.svg");
             return array('coursedatabase' => $tab);
@@ -36,7 +36,7 @@ Damit können Noten erfasst werden, man kann statistische Daten zusammen tragen o
 
     function getIconNavigation($course_id, $last_visit, $user_id) {
         $databases = CourseDB::findMine($course_id);
-        if (count($databases)) {
+        if (count($databases) || $GLOBALS['perm']->have_studip_perm("tutor", $course_id)) {
             $tab = new Navigation(_("Data"), PluginEngine::getURL($this, array(), "manager/overview"));
             $tab->setImage($this->getPluginURL()."/assets/database_grey.png");
             return $tab;
