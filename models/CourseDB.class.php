@@ -40,6 +40,11 @@ class CourseDB extends SimpleORMap {
         $db = $this->getSqliteDB();
     }
 
+    public function getTables() {
+        $db = $this->getSqliteDB();
+        return $db->query("SELECT * FROM sqlite_master WHERE type = 'table' ")->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     protected function getSqliteDB() {
         if ($this['dbtype'] === "sqlite") {
             $path = $GLOBALS['STUDIP_BASE_PATH']."/data/coursedb/".$this->getId().".sqlite";

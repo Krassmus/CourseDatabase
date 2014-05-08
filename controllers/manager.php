@@ -30,5 +30,11 @@ class ManagerController extends ApplicationController {
         }
         Navigation::activateItem("/course/coursedatabase");
         Navigation::getItem("/course/coursedatabase")->setImage($this->plugin->getPluginURL()."/assets/database.svg");
+        PageLayout::addScript($this->plugin->getPluginURL()."/assets/arbor.js");
+        PageLayout::addScript($this->plugin->getPluginURL()."/assets/arbor-tween.js");
+        PageLayout::addScript($this->plugin->getPluginURL()."/assets/graphics.js");
+        PageLayout::addScript($this->plugin->getPluginURL()."/assets/renderer.js");
+
+        $this->tables = $this->database->getTables();
     }
 }

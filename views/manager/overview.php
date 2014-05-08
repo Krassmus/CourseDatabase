@@ -13,7 +13,7 @@
         <? if (count($databases)) : ?>
         <? foreach ($databases as $database) : ?>
         <tr id="db_<?= $database->getId() ?>" data-attributes="<?= htmlReady(json_encode(studip_utf8encode($database->toArray()))) ?>">
-            <td><a href="<?= URLHelper::getLink("plugins.php/coursedatabase/manager/admin/".$database->getId()) ?>"><?= htmlReady($database['name']) ?></a></td>
+            <td><a href="<?= URLHelper::getLink("plugins.php/coursedatabase/database/overview", array('database_id' => $database->getId())) ?>"><?= htmlReady($database['name']) ?></a></td>
             <td><?= htmlReady($database['dbtype']) ?></td>
             <td>
                 <? if ($database['permission'] === "all") {

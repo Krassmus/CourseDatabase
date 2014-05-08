@@ -1,1 +1,0 @@
-<iframe src="<?= URLHelper::getLink($plugin->getPluginURL()."/adminer/adminer.php",  array('sqlite' => "", 'username' => "", 'db' => $GLOBALS['STUDIP_BASE_PATH']."/data/coursedb/".$database->getId().".sqlite")) ?>" style="width: 100%; height: 800px; border: none;"></iframe>
