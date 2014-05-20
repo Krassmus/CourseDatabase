@@ -142,4 +142,17 @@ if (!class_exists("SidebarWidget")) {
         'picture' => Assets::image_path("sidebar/admin-sidebar.png"),
         'content' => $infobox
     );
+} else {
+    $sidebar = Sidebar::get();
+    $sidebar->setImage(Assets::image_path("sidebar/admin-sidebar.png"));
+    if ($GLOBALS['perm']->have_studip_perm("tutor", $_SESSION['SessionSeminar'])) {
+        $aktionen = new ActionsWidget();
+        $aktionen->addLink(
+            _("Neue Datenbank anlegen"),
+            "?",
+            "icons/16/black/add",
+            array('onclick' => "STUDIP.coursedatabase.new(); return false;")
+        );
+        $sidebar->addWidget($aktionen);
+    }
 }
