@@ -9,7 +9,7 @@ homepage=https://github.com/Krassmus/CourseDatabase
 screenshot = assets/Beispiel gemeinsames Bearbeiten von Forschungdaten.png
 screenshot = assets/Übersicht der Datenbanken mit Rechteeinstellungen.png
 
-displayname = CourseDatabase
+displayname = Datenbanken
 icon = assets/database.svg
 keywords = Einrichten einer oder mehrerer Datenbanken; Anlegen von Tabellen; Eingeben von Datensätzen; Granulares Rechtemangement; Beispiel 1: Notenverwaltung; Beispiel 2: Forschungsdaten gemeinsam bearbeiten; Beispiel 3: Einführungskurse SQL
 category = Lehr- und Lernorganisation
