@@ -7,6 +7,7 @@ description=Mit CourseDatabase kann das Wesen von Datenbanken am Beispiel einer 
 homepage=https://github.com/Krassmus/CourseDatabase
 
 screenshot = assets/screenshot1.png
+screenshot = assets/screenshot2.png
 
 displayname = CourseDatabase
 icon = assets/database.svg
