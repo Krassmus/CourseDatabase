@@ -156,5 +156,5 @@ if (!class_exists("SidebarWidget")) {
         $sidebar->addWidget($aktionen);
     }
 
-    Helpbar::Get()->addPlainText(_("Datenbanken in Stud.IP"), _("Mit CourseDatabase kann das Wesen von Datenbanken am Beispiel einer SQLite-Datenbank gezeigt, erkundet und ein erster Umgang damit eingeübt werden. Echte Datenbanken stehen zur Verfügung, die mit einem granularen Rechtemanagement entweder nur den Lehrenden, für alle Teilnehmenden des Kurses oder einzelne Teilnehmendengruppen freigegeben werden. Damit lassen sich Noten erfassen, statistische Daten zusammentragen oder Einführungskurse zum Thema relationale Datenbanken abhalten."));
+    Helpbar::Get()->addPlainText(_("Datenbanken in Stud.IP"), _("Mit CourseDatabase kann beispielsweise das Wesen von Datenbanken am Beispiel einer SQLite-Datenbank gezeigt, erkundet und ein erster Umgang damit eingeübt werden. Echte Datenbanken stehen zur Verfügung, die mit einem granularen Rechtemanagement entweder nur den Lehrenden, für alle Teilnehmenden des Kurses oder einzelne Teilnehmendengruppen freigegeben werden. Damit lassen sich Noten erfassen, statistische Daten zusammentragen und gemeinsam bearbeiten oder Einführungskurse zum Thema relationale Datenbanken abhalten."));
 }
