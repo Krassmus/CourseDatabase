@@ -1,7 +1,6 @@
 <?php
 
 require_once dirname(__file__)."/application.php";
-require_once 'lib/contact.inc.php';
 
 class ManagerController extends ApplicationController {
 
