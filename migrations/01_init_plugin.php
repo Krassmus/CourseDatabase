@@ -1,5 +1,5 @@
 <?php
-class InitPlugin extends DBMigration
+class InitPlugin extends Migration
 {
 	function up(){
 	    DBManager::get()->exec(
@@ -13,7 +13,7 @@ class InitPlugin extends DBMigration
                   `chdate` bigint(20) NOT NULL,
                   PRIMARY KEY (`database_id`),
                   UNIQUE KEY `uniquename` (`seminar_id`,`name`)
-            ) ENGINE=MyISAM");
+            )");
 
         $path = $GLOBALS['STUDIP_BASE_PATH']."/data/coursedb";
         mkdir($path);

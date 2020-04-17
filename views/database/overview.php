@@ -2,20 +2,24 @@
 
 
 <script>
-    var sys = arbor.ParticleSystem(1000, 400,1);
+
+    var sys = arbor.ParticleSystem(1000, 400, 1);
     sys.parameters({gravity:true});
     sys.renderer = Renderer("#tableoverview");
-    var nodes = {};
-    <? foreach ($tables as $table) : ?>
-    nodes['<?= htmlReady($table['name']) ?>'] = sys.addNode(
-        '<?= htmlReady($table['name']) ?>',
-        {
-            'color':'#899AB9',
-            'shape':'square',
-            'label':'<?= htmlReady($table['name']) ?>',
-            'link' :'<?= URLHelper::getURL("plugins.php/coursedatabase/database/table", array('database_id' => $database->getId(),'tablename' => $table['name'])) ?>'
-        });
-    <? endforeach ?>
+    <?
+    $nodes_data = array('nodes' => array(), 'edges' => array());
+    foreach ($tables as $table) {
+        $nodes_data['nodes'][$table['name']] = array(
+            'color' => "#899AB9",
+            'shape' => "square",
+            'label' => $table['name'],
+            'link' => URLHelper::getURL("plugins.php/coursedatabase/database/table", array('database_id' => $database->getId(),'tablename' => $table['name']))
+        );
+    }
+    ?>
+    sys.graft(<?= json_encode($nodes_data) ?>);
+
+
 </script>
 
 

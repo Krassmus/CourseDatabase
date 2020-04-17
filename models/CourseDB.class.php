@@ -1,8 +1,10 @@
 <?php
 
-class CourseDB extends SimpleORMap {
+class CourseDB extends SimpleORMap
+{
 
-    static public function findMine($course_id) {
+    static public function findMine($course_id)
+    {
         if ($GLOBALS['perm']->have_studip_perm("tutor", $course_id)) {
             return self::findBySQL("seminar_id = ? ORDER BY name ASC", array($course_id));
         } else {
@@ -34,18 +36,20 @@ class CourseDB extends SimpleORMap {
         }
     }
 
-    public function __construct($id = null) {
-        $this->db_table = "coursedatabases";
-        parent::__construct($id);
-        $db = $this->getSqliteDB();
+    protected static function configure($config = array())
+    {
+        $config['db_table'] = 'coursedatabases';
+        parent::configure($config);
     }
 
-    public function getTables() {
+    public function getTables()
+    {
         $db = $this->getSqliteDB();
         return $db->query("SELECT * FROM sqlite_master WHERE type = 'table' ")->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    protected function getSqliteDB() {
+    protected function getSqliteDB()
+    {
         if ($this['dbtype'] === "sqlite") {
             $path = $GLOBALS['STUDIP_BASE_PATH']."/data/coursedb/".$this->getId().".sqlite";
             $db = new PDO("sqlite:".$path);

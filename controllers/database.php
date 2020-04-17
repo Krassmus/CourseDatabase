@@ -1,17 +1,16 @@
 <?php
 
-require_once dirname(__file__)."/application.php";
-require_once 'lib/contact.inc.php';
+class DatabaseController extends PluginController
+{
 
-class DatabaseController extends ApplicationController {
-
-    public function overview_action() {
+    public function overview_action()
+    {
         $this->database = new CourseDB(Request::option("database_id"));
-        if ($this->database['seminar_id'] !== $_SESSION['SessionSeminar']) {
+        if ($this->database['seminar_id'] !== Context::get()->id) {
             throw new AccessDeniedException("Wrong course");
         }
         Navigation::activateItem("/course/coursedatabase");
-        Navigation::getItem("/course/coursedatabase")->setImage($this->plugin->getPluginURL()."/assets/database.svg");
+        Navigation::getItem("/course/coursedatabase")->setImage(Icon::create($this->plugin->getPluginURL()."/assets/database.svg"));
         PageLayout::addScript($this->plugin->getPluginURL()."/assets/arbor.js");
         PageLayout::addScript($this->plugin->getPluginURL()."/assets/arbor-tween.js");
         PageLayout::addScript($this->plugin->getPluginURL()."/assets/graphics.js");
@@ -20,7 +19,8 @@ class DatabaseController extends ApplicationController {
         $this->tables = $this->database->getTables();
     }
 
-    public function table_action() {
+    public function table_action()
+    {
         $this->database = new CourseDB(Request::option("database_id"));
         echo Request::get("tablename");
     }
